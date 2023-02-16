@@ -7,18 +7,17 @@ class PostsModel(models.Model):
     tag = models.CharField(max_length=100, verbose_name='Тэг')
 
     def __str__(self):
-        return f'{self.tag} - {self.content}'
+        return f'{self.tag} - {self.content}' or ''
 
     class Meta:
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
         ordering = ['date', 'tag']
 
-class UrlsModel(models.Model):
-    url = models.ForeignKey(PostsModel, on_delete=models.CASCADE, verbose_name='Вложенные url')
 
-    def __str__(self):
-        return self.url
+class UrlsModel(models.Model):
+    url = models.CharField(max_length=2000)
+    post = models.ForeignKey(PostsModel, on_delete=models.CASCADE, verbose_name='Пост', related_name='posts')
 
     class Meta:
         verbose_name = 'Вложенный url'

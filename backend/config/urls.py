@@ -5,6 +5,7 @@ from rest_framework import routers
 
 from app.views import PostsViewSet
 
+
 router = routers.SimpleRouter()
 router.register('posts', PostsViewSet)
 

@@ -18,5 +18,3 @@ def get_posts_from_yandex_or_ozon(name_channel):
     with open(f'{name_channel}.json', 'w') as f:
         f.write(result)
     return result
-
-
